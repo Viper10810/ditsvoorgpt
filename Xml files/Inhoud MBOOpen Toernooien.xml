@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+- Database: 'mboopen'
+-->
+<mboopen>
+  <!-- Tabel toernooien -->
+    <toernooien>
+        <ID>1</ID>
+        <Omschrijving>Voorjaarstoernooi</Omschrijving>
+        <Datum>2017-05-23 00:00:00</Datum>
+    </toernooien>
+    <toernooien>
+        <ID>2</ID>
+        <Omschrijving>Zomerbal</Omschrijving>
+        <Datum>2017-07-31 00:00:00</Datum>
+    </toernooien>
+    <toernooien>
+        <ID>3</ID>
+        <Omschrijving>Wintertoernooi</Omschrijving>
+        <Datum>2016-12-29 00:00:00</Datum>
+    </toernooien>
+</mboopen>

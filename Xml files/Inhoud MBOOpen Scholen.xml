@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+- Database: 'mboopen'
+-->
+<mboopen>
+  <!-- Tabel scholen -->
+    <scholen>
+        <ID>5811</ID>
+        <Naam>Albeda College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5812</ID>
+        <Naam>Da Vinci College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5813</ID>
+        <Naam>Drenthe College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5814</ID>
+        <Naam>Graafschap College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5815</ID>
+        <Naam>Katholiek Onderwijs Vlaanderen</Naam>
+    </scholen>
+    <scholen>
+        <ID>5816</ID>
+        <Naam>Rijn Ijssel College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5817</ID>
+        <Naam>ROC de Leijgraaf</Naam>
+    </scholen>
+    <scholen>
+        <ID>5818</ID>
+        <Naam>ROC Horizon College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5819</ID>
+        <Naam>ROC ID College</Naam>
+    </scholen>
+    <scholen>
+        <ID>5820</ID>
+        <Naam>ROC Midden Nederlandd</Naam>
+    </scholen>
+    <scholen>
+        <ID>5821</ID>
+        <Naam>ROC TOP</Naam>
+    </scholen>
+    <scholen>
+        <ID>5822</ID>
+        <Naam>ROC A12</Naam>
+    </scholen>
+    <scholen>
+        <ID>5823</ID>
+        <Naam>Koning Willem I College</Naam>
+    </scholen>
+</mboopen>
