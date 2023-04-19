@@ -1,11 +1,11 @@
 <?php
 
-include_once 'database.php';
+require_once 'database.php';
 
-$obj = new database();
 
-$users = $obj->getAanmelding();
-$speler = $database->getAanmelding($id);
+$database = new database();
+$aanmelding = $database->getAanmelding($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +44,7 @@ $speler = $database->getAanmelding($id);
                </tr>
            </thead>
            <tbody></tbody>
-               <?php foreach ($users as $user): ?>
+           <?php foreach ($users as $user): ?>
                <tr>
                    <td><?php echo $user['schoolID'];?></td>
                    <td><?php echo $user['naam'];?></td>

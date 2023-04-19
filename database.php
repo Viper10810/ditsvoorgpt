@@ -1,5 +1,7 @@
 <?php
+
 class database{
+    
     private $host;
     private $dbh;
     private $user;
@@ -11,7 +13,7 @@ class database{
         $this->user = 'root';
         $this->pass = '';
         $this->db = 'toernooi';
-
+       
         
         try{
             $dsn = "mysql:host=$this->host;dbname=$this->db";
@@ -40,6 +42,7 @@ class database{
         }
     }
 
+   
     public function getSchool(){
         try {
             $query = $this->dbh->query(
@@ -50,7 +53,7 @@ class database{
             throw $e;
         }
     }
-
+   
     public function getSchoolID($id){
         try {
             $query = $this->dbh->prepare("SELECT * FROM scholen WHERE schoolID = :id");
