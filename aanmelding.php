@@ -5,7 +5,28 @@ require_once 'database.php';
 
 $database = new database();
 $aanmelding = $database->getAanmelding($id);
+$conn = new mysqli("localhost", "root", "", "toernooi");
 
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Get aanmelding data
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM aanmeldingen WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $aanmelding = $result->fetch_assoc();
+    } else {
+        echo "No results found.";
+    }
+} else {
+    echo "No ID specified.";
+}
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
