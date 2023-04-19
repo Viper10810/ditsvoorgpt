@@ -4,12 +4,15 @@ require_once 'database.php';
 
 
 $database = new database("localhost", "root", "", "toernooi");
-if(isset($_GET['id'])) {
+if(isset($_GET['id'])) 
+{
     $id = $_GET['id'];
     $aanmelding = $database->getAanmelding($id);
- } else {
+} 
+else 
+{
     echo "";
- }
+}
 
 $conn = new mysqli("localhost", "root", "", "toernooi");
 
@@ -35,6 +38,7 @@ if (isset($_GET['id'])) {
 $conn->close();
 $users = array();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,10 +94,20 @@ $users = array();
          
             ?>
 
-            <form method="post" enctype="multipart/form-data">
-                <input type="file" name="xml_file">
-                <input type="submit" value="Import XML">
-            </form>
+<form method="post" enctype="multipart/form-data">
+  <label for="file">Select XML file:</label>
+  <input type="file" name="file" id="file">
+  <br><br>
+  <label for="table">Select table:</label>
+  <select name="table" id="table">
+    <option value="scholen">Scholen</option>
+    <option value="spelers">Spelers</option>
+    <option value="toernooien">Toernooien</option>
+    <option value="wedstrijden">Wedstrijden</option>
+  </select>
+  <br><br>
+  <input type="submit" name="submit" value="Upload">
+
 
 <tbody></tbody>
            <?php foreach ($users as $user): ?>
