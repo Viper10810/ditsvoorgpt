@@ -34,6 +34,9 @@ $users = $obj->getSpelers();
                    <td class="Create">
                         <a class="btn btn-success mr-2 btn-lg rounded-pill" href="./spelers/create.php?id=">Nieuwe Speler Aanmelden</a>
                     </td>
+                    <a class="btn btn-primary mr-2 btn-lg rounded-pill" href="./aanmelding.php">aanmelding</a>
+                   </td>  
+                   <td class="school">
                     
 <main> 
        <table class="table table-striped" id="overzicht">

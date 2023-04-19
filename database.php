@@ -1,5 +1,4 @@
 <?php
-
 class database{
     private $host;
     private $dbh;
@@ -67,6 +66,7 @@ class database{
         }
     }
 
+    
     public function createSpelers($voornaam, $tussenvoegsel, $achternaam, $schoolID){
         try {
             $query =$this->dbh->prepare(
