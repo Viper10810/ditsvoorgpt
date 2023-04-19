@@ -3,8 +3,14 @@
 require_once 'database.php';
 
 
-$database = new database();
-$aanmelding = $database->getAanmelding($id);
+$database = new database("localhost", "root", "", "toernooi");
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $aanmelding = $database->getAanmelding($id);
+ } else {
+    echo "";
+ }
+
 $conn = new mysqli("localhost", "root", "", "toernooi");
 
 if ($conn->connect_error) {
@@ -23,10 +29,11 @@ if (isset($_GET['id'])) {
         echo "No results found.";
     }
 } else {
-    echo "No ID specified.";
+    echo "";
 }
 
 $conn->close();
+$users = array();
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +49,7 @@ $conn->close();
 
 </head>
 <body style="background-color:darkorange;">
+
                     <td class="index">
                        <a class="btn btn-primary mr-2 btn-lg rounded-pill" href="./index.php">Home</a>
                    </td>  
@@ -54,17 +62,40 @@ $conn->close();
                    <td class="Create">
                         <a class="btn btn-success mr-2 btn-lg rounded-pill" href="./school/createSchool.php?id=">School Aanmelden</a>
                     </td>
+                 
 <main> 
+
        <table class="table table-striped" id="overzicht">
            <thead class="thead-dark">
-               <tr>
-                   <th scope="col">SchoolID</th>
-                   <th scope="col">School naam</th>
-                   <th scope="col">Aanpassen</th>
-                   <th scope="col">Verwijderen</th>
-               </tr>
-           </thead>
-           <tbody></tbody>
+
+           <?php
+                    if(isset($_FILES['file'])) {
+                        // code to process the uploaded file
+                    } else {
+                        echo "Sorry, je moet eerst een bestand kiezen";
+                    }
+                    ?>
+                    <html>
+                        <h5>click hier om een </h5>
+                    </html>
+
+            <?php
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['xml_file'])) 
+            {
+               
+                $xml = simplexml_load_file($_FILES['xml_file']['tmp_name']);
+                // Extract necessary information from XML file and insert into MySQL database
+            }
+         
+            ?>
+
+            <form method="post" enctype="multipart/form-data">
+                <input type="file" name="xml_file">
+                <input type="submit" value="Import XML">
+            </form>
+
+<tbody></tbody>
            <?php foreach ($users as $user): ?>
                <tr>
                    <td><?php echo $user['schoolID'];?></td>
