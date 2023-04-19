@@ -2,7 +2,6 @@
 
 require_once 'database.php';
 
-
 $database = new database("localhost", "root", "", "toernooi");
 if(isset($_GET['id'])) 
 {
@@ -41,6 +40,9 @@ $users = array();
 
 
 <!DOCTYPE html>
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,7 +73,7 @@ $users = array();
 
        <table class="table table-striped" id="overzicht">
            <thead class="thead-dark">
-
+          
            <?php
                     if(isset($_FILES['file'])) {
                         // code to process the uploaded file
@@ -82,16 +84,14 @@ $users = array();
                     <html>
                         <h5>click hier om een </h5>
                     </html>
-
+                   
             <?php
             
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['xml_file'])) 
-            {
-               
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['xml_file'])) {
                 $xml = simplexml_load_file($_FILES['xml_file']['tmp_name']);
                 // Extract necessary information from XML file and insert into MySQL database
-            }
-         
+                move_uploaded_file($_FILES["xml_file"]["tmp_name"], "uploads/" . $_FILES["xml_file"]["name"]);
+              }
             ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -114,6 +114,7 @@ $users = array();
                <tr>
                    <td><?php echo $user['schoolID'];?></td>
                    <td><?php echo $user['naam'];?></td>
+                   
                    <td class="Edit">
                        <a class="btn btn-primary mr-2 btn-sm" href="./school/editSchool.php?id=<?php echo $user['schoolID']; ?>">Aanpassen</a>
                    </td>      
@@ -126,7 +127,7 @@ $users = array();
                     <td class="index">
                        <a class="btn btn-danger mr-2 btn-sm rounded-pill" href="./index.php">Terug</a>
                    </td>      
-
+                   
            </tbody>
        </table>
 
